@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yozo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #efeff2; 
+        }
+
+        .sidebar {
+            width: 210px;
+            height: 180vh;
+            background-color: #f8f8fb; 
+            color: #fff;
+            position: absolute;
+            left: 0;
+            top: 25.5px;
+            padding: 20px;
+            z-index: 1000;
+        }
+
+        .sidebar .logo img {
+    border-radius: 0%; 
+    width: 250px;
+    display: relative;
+    margin-top:-500px;
+    margin-left:-20px;    
+}
+        
+
+        .sidebar .user {
+            text-align: center;
+            font-size: 19px;
+            margin-bottom: 20px;
+        }
+
+        .sidebar .user i {
+            font-size: 30px;
+            margin-bottom: 10px;
+            color: #d7ccc8; 
+        }
+
+        .sidebar .menu a {
+            margin-top: 10px;
+            display: block;
+            color: #163662;
+            padding: 10px 0;
+            text-decoration: none;
+        }
+
+        .sidebar .menu ul li a {
+            padding-left: 20px;
+            color: #ddd;
+            font-size: 14px;
+        }
+
+        .sidebar .menu a:hover {
+            background-color: #e1e4e4; 
+            border-radius: 0px;
+            width: 250px;
+            margin-left: -18px;
+        }
+
+        .sidebar .menu a.active {
+            margin-top: 10px;
+            background-color: #e1e4e4; 
+            border-radius: 0px;
+            width: 190px;
+            margin-left: -18px;
+        }
+
+        .logout {
+            text-align: center;
+        }
+
+        .logout button {
+            background-color: #e00000; 
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+            margin-top: 350px;
+        }
+
+        .logout button:hover {
+            background-color: #a60000; 
+        }
+
+        .content {
+            margin-left: 0px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .header {
+            margin-bottom: 20px;
+            background-color: #1a3c6b;
+            padding: 10px 15px;
+            height: 40px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header h2 {
+            margin: 0;
+            color: #ffffff;
+        }
+
+        .header span {
+            color: #ffffff;
+        }
+
+        .menu p {
+            margin-left: -3px;
+            color: #163662;
+        }
+
+        .menu li {
+            margin-left: 0px;
+            color: #163662;
+        }
+
+        .sidebar .menu ul li .yozo-link {
+            color: #163662;
+        }
+
+       
+
+        h1 {
+            text-align:center;
+    margin-left: 185px;
+    font-family: "Montserrat" , serif;
+    font-size: 40px;
+
+}
+
+/* Tablonun genel düzeni */
+#kampanyaTable {
+    width: 70%;  /* Tablo genişliğini ayarlayın */
+    margin: 20px auto;  /* Ortalamak için */
+    border-collapse: collapse;  /* Hücre sınırlarını birleştirir */
+    background-color: #ffffff;  /* Arka plan rengi */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);  /* Hafif gölge */
+    border-radius: 8px;  /* Yuvarlatılmış köşeler */
+    margin-left: 340px;
+}
+
+/* Başlık satırı (thead) */
+#kampanyaTable thead {
+    background-color: #f4821e;  /* Başlık satırının arka plan rengi */
+    color: white;  /* Başlık metni rengi */
+    text-transform: uppercase;  /* Harfleri büyük yapar */
+}
+
+#kampanyaTable th {
+    padding: 12px;  /* Başlık hücrelerine iç boşluk */
+    text-align: center;  /* Başlık hücrelerini ortala */
+    border: 1px solid #ddd;  /* Sınır rengi */
+}
+
+/* Tablo gövdesi (tbody) */
+#kampanyaTable tbody {
+    background-color: #f9f9f9;  /* Tablo gövdesinin arka plan rengi */
+}
+
+#kampanyaTable td {
+    padding: 10px;  /* Hücrelere iç boşluk */
+    text-align: center;  /* Verileri ortala */
+    border: 1px solid #ddd;  /* Hücrelerin sınırları */
+}
+
+/* Satır hover efekti */
+#kampanyaTable tbody tr:hover {
+    background-color: #e1e4e4;  /* Hover durumunda arka plan rengi */
+}
+
+/* Alternatif satır renkleri */
+#kampanyaTable tbody tr:nth-child(even) {
+    background-color: #f1f1f1;  /* Çift numaralı satırlar için */
+}
+
+#kampanyaTable tbody tr:nth-child(odd) {
+    background-color: #ffffff;  /* Tek numaralı satırlar için */
+}
+
+/* Tabloyu daha estetik hale getirmek için */
+#kampanyaTable th, #kampanyaTable td {
+    border-radius: 4px;  /* Yuvarlatılmış köşeler */
+}
+
+#kampanyaTable td {
+    font-size: 12px;  /* Hücrelerdeki yazı boyutunu ayarlama */
+}
+
+/* Tabloyu yatay kaydırılabilir hale getirmek için */
+#kampanyaTable_wrapper {
+    overflow-x: auto;
+    max-width: 100%;
+}
+
+ /* Filtreleme formunun genel düzeni */
+#filterForm {
+    width: 40%; /* Form genişliği */
+    margin: 20px auto; /* Ortalamak için */
+    display: flex; /* Form öğelerini yatay hizalamak için */
+    justify-content: space-around; /* Form öğeleri arasında eşit boşluk bırakır */
+    align-items: center; /* Form öğelerini dikey ortalar */
+    padding: 10px 20px; /* İç boşluk */
+    background-color: #ffffff; /* Arka plan rengi */
+    border: 1px solid #ddd; /* Çerçeve rengi */
+    border-radius: 8px; /* Yuvarlatılmış köşeler */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Hafif gölge efekti */
+    margin-left: 530px;
+}
+
+/* Formdaki etiketler */
+#filterForm label {
+    font-size: 14px; /* Yazı boyutu */
+    color: #333; /* Yazı rengi */
+    margin-right: 10px; /* Sağ boşluk */
+}
+
+/* Formdaki giriş alanları */
+#filterForm input[type="number"] {
+    width: 100px; /* Giriş alanı genişliği */
+    padding: 5px; /* İç boşluk */
+    border: 1px solid #ccc; /* Çerçeve rengi */
+    border-radius: 4px; /* Yuvarlatılmış köşeler */
+    font-size: 14px; /* Yazı boyutu */
+    text-align: center; /* Metni ortala */
+}
+
+/* Filtreleme butonu */
+#filterForm button {
+    background-color: #f4821e; /* Buton arka plan rengi */
+    color: #fff; /* Yazı rengi */
+    border: none; /* Çerçeve yok */
+    padding: 8px 15px; /* İç boşluk */
+    font-size: 14px; /* Yazı boyutu */
+    border-radius: 4px; /* Yuvarlatılmış köşeler */
+    cursor: pointer; /* Fare imlecini butona değiştirir */
+    transition: background-color 0.3s ease; /* Renk değişim geçişi */
+}
+
+/* Buton hover efekti */
+#filterForm button:hover {
+    background-color: #163662; /* Hover durumunda arka plan rengi */
+}
+   
+#icerikBarChart {
+        width: 90% !important;   /* Ekrana tam genişlik */
+        height: 280px !important; /* Sabit yükseklik */
+        margin-left: 18px;
+        margin-top: 40px;
+        
+    }
+
+    .chart-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px; /* İsteğe bağlı, grafiğin üst kısmında boşluk */
+}
+
+.chart-box {
+    background-color: white;  /* Beyaz arka plan */
+    padding: auto;  /* İç boşluk */
+    border-radius: 10px;  /* Köşe yuvarlama */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Gölge efekti */
+    width: 35%;  /* Ekrana uygun genişlik */
+     /* Maksimum genişlik */
+    height: 330px;  /* Sabit yükseklik, ihtiyaca göre değiştirilebilir */
+    position:relative;
+    top:10px;
+    align-items: center;
+    right:180px;
+}
+
+#kampanyaturBarChart {
+        width: 85% !important;   /* Ekrana tam genişlik */
+        height: 420px !important; /* Sabit yükseklik */
+        margin-left: 30px;
+        margin-top: 30px;
+        
+    }
+
+    .kampanyatur-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px; /* İsteğe bağlı, grafiğin üst kısmında boşluk */
+    
+}
+
+.kampanyatur-box {
+    background-color: white;  /* Beyaz arka plan */
+    padding: auto;  /* İç boşluk */
+    border-radius: 10px;  /* Köşe yuvarlama */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Gölge efekti */
+    width: 70%;  /* Ekrana uygun genişlik */
+     /* Maksimum genişlik */
+    height: 450px;  /* Sabit yükseklik, ihtiyaca göre değiştirilebilir */
+    position:relative;
+    top:-369px;
+    align-items: center;
+    left:140px;
+}
+
+#platformBarChart {
+        width: 85% !important;   /* Ekrana tam genişlik */
+        height: 300px !important; /* Sabit yükseklik */
+        margin-left: 30px;
+        margin-top: 30px;
+        
+    }
+
+    .platform-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px; /* İsteğe bağlı, grafiğin üst kısmında boşluk */
+    
+}
+
+.platform-box {
+    background-color: white;  /* Beyaz arka plan */
+    padding: auto;  /* İç boşluk */
+    border-radius: 10px;  /* Köşe yuvarlama */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Gölge efekti */
+    width: 40%;  /* Ekrana uygun genişlik */
+     /* Maksimum genişlik */
+    height: 330px;  /* Sabit yükseklik, ihtiyaca göre değiştirilebilir */
+    position:relative;
+    top:-369px;
+    align-items: center;
+    left:415px;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="logo">
+                <img src="/pic/logo.png" alt="NiloYem Logo" width="150">                
+            </div>
+            
+            <nav class="menu">
+                <a href="/anasayfa" class="anasayfa-link"><i class="fas fa-home"></i> Ana Sayfa</a>
+                <p><i class="fa-solid fa-tag"></i> Markalar</p>
+                <ul>
+                    <li><a href="/yozoUrban" class="yozo-link">Yozo Urban</a></li>
+                </ul>
+                <a href="/ekipler"><i class="fa-solid fa-people-group"></i> Ekipler</a>
+                <a href="/odemeler"><i class="fas fa-calculator"></i> Ödemeler</a>
+            </nav>
+            <div class="logout">
+                <button onclick="logout()">Çıkış Yap</button>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="header">
+                <h2>Ajans Panel Logo</h2>
+                <span style="float: right;"><div class="user">
+                    <i class="fas fa-user-circle"></i> <span id="username">Loading...</span>
+                </div></span>
+            </div>
+    </div>
+
+    <h1>Kampanya Performans Verileri</h1>
+
+    <form id="filterForm">
+        <label for="ay">Ay:</label>
+        <input type="number" id="ay" name="ay" min="1" max="12" placeholder="1-12" required>
+
+        <label for="yil">Yıl:</label>
+        <input type="number" id="yil" name="yil" value="2022" readonly> <!-- Sadece 2022'yi kabul edecek -->
+
+        <button type="submit">Filtrele</button>
+    </form>
+
+    <table id="kampanyaTable">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>KAMPANYA TÜR ID</th>
+          <th>AY</th>
+          <th>YIL</th>
+          <th>GÖSTERİM SAYISI</th>
+          <th>TIKLANMA SAYISI</th>
+          <th>HARCANAN</th>
+          <th>ROI</th>
+          <th>CPC</th>
+          <th>DÖNÜŞÜM ORANI (%)</th>
+          <th>GELİR</th>
+          <th>ETKİLEŞİM ORANI (%)</th>
+          <!-- Diğer sütunları buraya ekleyebilirsiniz -->
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Kampanya verileri buraya dinamik olarak yüklenecek -->
+      </tbody>
+    </table>
+  
+    </div>
+
+    <div class="chart-container">
+        <div class="chart-box">
+          <canvas id="icerikBarChart"></canvas>
+        </div>
+    </div>
+
+    <div class="platform-container">
+        <div class="platform-box">
+          <canvas id="platformBarChart"></canvas>
+        </div>
+    </div>
+    
+    
+    <div class="kampanyatur-container">
+        <div class="kampanyatur-box">
+          <canvas id="kampanyaturBarChart"></canvas>
+        </div>
+    </div>
+
+   
+    
+
+    <script>
+        fetch('/getUsers')
+    .then(response => response.json())
+    .then(data => {
+        document.getElementById('username').innerText = data.username;
+    })
+    .catch(error => {
+        console.error('Kullanıcı adı alınamadı:', error);
+    });
+
+        // Logout fonksiyonu
+        function logout() {
+            fetch('/logout')
+                .then(() => {
+                    window.location.href = '/login';
+                });
+        }
+
+        // Aktif menü öğesini ayarlama
+        window.addEventListener('DOMContentLoaded', () => {
+            const path = window.location.pathname;  // Sayfanın URL yolunu al
+
+            // URL'ye göre aktif öğeyi belirleme
+            if (path === '/yozoUrban') {
+                document.querySelector('.yozo-link').classList.add('active');
+            } else if (path === '/anasayfa') {
+                document.querySelector('.anasayfa-link').classList.add('active');
+            }
+        });
+
+
+        document.getElementById('filterForm').addEventListener('submit', function (e) {
+            e.preventDefault(); // Sayfanın yeniden yüklenmesini engeller
+
+            const ay = document.getElementById('ay').value;
+            const yil = document.getElementById('yil').value;
+
+            fetch(`/api/kampanya-performans?ay=${ay}&yil=${yil}`)
+                .then(response => response.json())
+                .then(data => {
+                    const tableBody = document.querySelector('#kampanyaTable tbody');
+                    tableBody.innerHTML = ''; // Eski tabloyu temizler
+
+                    data.forEach(row => {
+                        const tr = document.createElement('tr');
+                        for (let key in row) {
+                            const td = document.createElement('td');
+                            td.textContent = row[key];
+                            tr.appendChild(td);
+                        }
+                        tableBody.appendChild(tr);
+                    });
+                })
+                .catch(error => {
+                    console.error('Filtreleme sırasında hata:', error);
+                });
+        });
+    </script>
+  <script>
+    fetch('/icerik/icerik-performans')
+    .then(response => response.json())
+    .then(data => {
+        console.log('Veri Alındı:', data);
+        if (data.length === 0) {
+            console.log('Veri boş geldi!');
+        }
+        
+        // Verilerden ayları ve ROI değerlerini alıyoruz
+        const labels = data.map(item => item.icerik_tur_ad);  
+        const roiValues = data.map(item => item.toplam_gelir);  
+        function getColorForROI(value) {
+    if (value > 400000) return '#750909'; // Yüksek gelir
+    if (value > 300000) return '#c42525'; // Orta gelir
+    return '#f75454'; // Düşük gelir
+}
+
+
+        // Grafik verilerini hazırlıyoruz
+        const ctx = document.getElementById('icerikBarChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Yıllık İçerik Türü Performansları',
+                    data: roiValues,
+                    backgroundColor: roiValues.map(getColorForROI),  // Renkleri dinamik olarak ayarlıyoruz
+                    borderColor: 'rgba(230, 230, 230, 1)',  // Sınır rengi
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Gelir'
+                        },
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    })
+    .catch(error => {
+        console.error('Veri alınamadı:', error);
+        
+        
+    });
+</script>
+
+<script>
+    fetch('/kampanyatur/kampanyatur-performans')
+    .then(response => response.json())
+    .then(data => {
+        console.log('Veri Alındı:', data);
+        if (data.length === 0) {
+            console.log('Veri boş geldi!');
+        }
+        
+        // Verilerden ayları ve ROI değerlerini alıyoruz
+        const labels = data.map(item => item.kampanya_tur_ad);  
+        const roiValues = data.map(item => item.toplam_gelir);  
+        function getColorForROI(value) {
+    if (value > 200000) return '#01470a'; // Yüksek gelir
+    if (value > 100000) return '#1ea62f'; // Orta gelir
+    return '#51fc66'; // Düşük gelir
+}
+
+
+        // Grafik verilerini hazırlıyoruz
+        const ctx = document.getElementById('kampanyaturBarChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Yıllık Kampanya Tür Performansları',
+                    data: roiValues,
+                    backgroundColor: roiValues.map(getColorForROI),  // Renkleri dinamik olarak ayarlıyoruz
+                    borderColor: 'rgba(230, 230, 230, 1)',  // Sınır rengi
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Gelir'
+                        },
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    })
+    .catch(error => {
+        console.error('Veri alınamadı:', error);
+        
+        
+    });
+</script>
+
+
+<script>
+    fetch('/platform/platform-performans')
+    .then(response => response.json())
+    .then(data => {
+        console.log('Veri Alındı:', data);
+        if (data.length === 0) {
+            console.log('Veri boş geldi!');
+        }
+        
+        // Verilerden ayları ve ROI değerlerini alıyoruz
+        const labels = data.map(item => item.platform_ad);  
+        const roiValues = data.map(item => item.toplam_gelir);  
+        function getColorForROI(value) {
+    if (value > 400000) return '#1a3c6b'; // Yüksek gelir
+    if (value > 300000) return '#4589ff'; // Orta gelir
+    return '#a6c8ff'; // Düşük gelir
+}
+
+
+        // Grafik verilerini hazırlıyoruz
+        const ctx = document.getElementById('platformBarChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Yıllık Platform Performansları',
+                    data: roiValues,
+                    backgroundColor: roiValues.map(getColorForROI),  // Renkleri dinamik olarak ayarlıyoruz
+                    borderColor: 'rgba(230, 230, 230, 1)',  // Sınır rengi
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Gelir'
+                        },
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    })
+    .catch(error => {
+        console.error('Veri alınamadı:', error);
+        
+        
+    });
+</script>
+    
+</body>
+</html>

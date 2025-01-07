@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anasayfa</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<style> 
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #efeff2; 
+}
+
+
+.sidebar {
+    width: 210px;
+    height: 100vh;
+    background-color: #f8f8fb; 
+    color: #fff;
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 20px;
+    z-index: 5;
+    margin-top:25.5px;
+    z-index: 1000;
+}
+
+.sidebar .logo img {
+    border-radius: 0%; 
+    width: 250px;
+    display: relative;
+    margin-top:-60px;
+    margin-left:-20px;    
+}
+
+.sidebar .user {
+    text-align: center;
+    font-size: 19px;
+    margin-bottom: 20px;
+}
+
+.sidebar .user i {
+    font-size: 30px;
+    margin-bottom: 10px;
+    color: #d7ccc8; 
+}
+
+.sidebar .menu a {
+    margin-top:10px;
+    display: block;
+    color: #163662;
+    padding: 10px 0;
+    text-decoration: none;
+}
+
+.sidebar .menu ul li a {
+    padding-left: 20px;
+    color: #ddd;
+    font-size: 14px;
+}
+
+.sidebar .menu a:hover {
+    background-color: #e1e4e4; 
+    border-radius: 0px;
+    width: 250px;
+    margin-left: -18px;
+}
+
+
+.sidebar .menu a.active {
+    margin-top: 10px;
+    background-color: #e1e4e4; 
+    border-radius: 0px;
+    width:250px;
+    margin-left: -18px;
+
+}
+
+
+.logout {
+    text-align: center;
+}
+
+.logout button {
+    background-color: #e00000; 
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+    margin-top:350px;
+}
+
+.logout button:hover {
+    background-color: #a60000; 
+}
+
+
+.content {
+    margin-left: 0px;
+    
+    position: relative;
+    z-index: 10;
+
+}
+
+.header {
+    margin-bottom: 20px;
+    background-color: #1a3c6b;
+    padding: 10px 15px;
+    height: 40px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header h2 {
+    margin: 0;
+    color: #ffffff;
+}
+
+.header span {
+    color: #ffffff;
+}
+
+.menu p  {
+    margin-left:-3px;
+    color:#163662
+    
+}
+
+.menu li {
+    margin-left: 0px;
+    color:#163662
+    
+}
+
+.sidebar .menu ul li .yozo-link {
+    color: #163662; /* Ana Sayfa ile aynı renk */
+    padding: 10px 20px; /* Ana Sayfa ile aynı iç boşluk */
+    text-decoration: none; /* Alt çizgiyi kaldır */
+    display: block; /* Genişlik kontrolü için blok eleman */
+    width: 100%; /* Menü genişliğini doldur */
+    border-radius: 0; /* Köşe yuvarlamasını sıfırla */
+    background-color: transparent; /* Varsayılan arka plan */
+}
+
+.sidebar .menu ul li .yozo-link:hover {
+    background-color: #e1e4e4; /* Hover sırasında arka plan */
+    color: #163662; /* Hover sırasında metin rengi */
+    border-radius: 0; /* Köşe yuvarlamasını sıfırla */
+    margin-right: -10px; /* Dış boşluk sıfır */
+    padding: 10px 20px; /* Ana Sayfa ile aynı padding */
+}
+
+
+
+#roiBarChart {
+        width: 85% !important;   /* Ekrana tam genişlik */
+        height: 350px !important; /* Sabit yükseklik */
+        margin-left: 50px;
+        margin-top: 30px;
+        
+    }
+
+.chart-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px; /* İsteğe bağlı, grafiğin üst kısmında boşluk */
+}
+
+.chart-box {
+    background-color: white;  /* Beyaz arka plan */
+    padding: auto;  /* İç boşluk */
+    border-radius: 10px;  /* Köşe yuvarlama */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Gölge efekti */
+    width: 50%;  /* Ekrana uygun genişlik */
+     /* Maksimum genişlik */
+    height: 360px;  /* Sabit yükseklik, ihtiyaca göre değiştirilebilir */
+    position:absolute;
+    top:320px;
+    left:300px;
+    align-items: center;
+    
+}
+
+
+#totalSpent {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 18px;
+    color: #333;
+}
+
+.spent-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px; /* İsteğe bağlı, grafiğin üst kısmında boşluk */
+
+}
+.spent-box {
+    background-color: white;  /* Beyaz arka plan */
+    padding: auto;  /* İç boşluk */
+    border-radius: 10px;  /* Köşe yuvarlama */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Gölge efekti */
+    width: 20%;  /* Ekrana uygun genişlik */
+     /* Maksimum genişlik */
+    height: 100px;  /* Sabit yükseklik, ihtiyaca göre değiştirilebilir */
+    position:relative;
+    align-items: center;
+    right:290px;
+    top:0px;
+    
+   
+
+}
+
+.revenue-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    margin-top: 50px; /* İsteğe bağlı, grafiğin üst kısmında boşluk */
+    position: relative;
+
+}
+.revenue-box {
+    background-color: white;  /* Beyaz arka plan */
+    padding: auto;  /* İç boşluk */
+    border-radius: 10px;  /* Köşe yuvarlama */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Gölge efekti */
+    width: 20%;  /* Ekrana uygun genişlik */
+     /* Maksimum genişlik */
+    height: 100px;  /* Sabit yükseklik, ihtiyaca göre değiştirilebilir */
+    position:relative;
+    align-items: center;
+    right:-100px;
+    bottom:150px;
+    justify-content: center; /* İçerikleri yatayda ortala */
+    display:flex;
+    text-align: center;
+    
+   
+
+}
+
+.markasayi-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    margin-top: 50px; /* İsteğe bağlı, grafiğin üst kısmında boşluk */
+    position: relative;
+
+}
+.markasayi-box {
+    background-color: white;  /* Beyaz arka plan */
+    padding: auto;  /* İç boşluk */
+    border-radius: 10px;  /* Köşe yuvarlama */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Gölge efekti */
+    width: 20%;  /* Ekrana uygun genişlik */
+     /* Maksimum genişlik */
+    height: 100px;  /* Sabit yükseklik, ihtiyaca göre değiştirilebilir */
+    position:relative;
+    align-items: center;
+    left:490px;
+    bottom:300px;
+    justify-content: center; /* İçerikleri yatayda ortala */
+    display:flex;
+    text-align: center;
+    
+   
+
+}
+
+
+
+
+
+    
+#myPieChart {
+
+    width: 75% !important;   /* Ekrana tam genişlik */
+        height: 250px !important; /* Sabit yükseklik */
+        margin-left: 40px;
+        margin-top: 50px;
+    }
+
+
+.pie-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px; /* İsteğe bağlı, grafiğin üst kısmında boşluk */
+}
+
+.pie-container2 {
+    background-color: white;  /* Beyaz arka plan */
+    padding: auto;  /* İç boşluk */
+    border-radius: 10px;  /* Köşe yuvarlama */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Gölge efekti */
+    width: 22%;  /* Ekrana uygun genişlik */
+     /* Maksimum genişlik */
+    height: 360px;  /* Sabit yükseklik, ihtiyaca göre değiştirilebilir */
+    position:absolute;
+    top:320px;
+    align-items: center;
+    right:70px;
+
+
+
+}
+
+h1{
+    text-align:center;
+    margin-left: 185px;
+    font-family: "Montserrat" , serif;
+    font-size: 40px;
+}
+h3 {
+  text-align: center;
+  font-family: "Montserrat" , serif;
+  color:#2a2a2a
+  
+}
+
+
+</style> 
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="logo">
+                <img src="/pic/logo.png" alt="NiloYem Logo" width="150">
+            </div>
+            <nav class="menu">
+                <a href="/anasayfa" class="active"><i class="fas fa-home"></i> Ana Sayfa</a>
+                <p><i class="fa-solid fa-tag"></i> Markalar</p>
+                <ul>
+                    <li><a href="/yozoUrban" class="yozo-link">Yozo Urban</a></li>
+                </ul>
+                <a href="/ekipler"><i class="fa-solid fa-people-group"></i>Ekipler</a>
+                <a href="/odemeler"><i class="fas fa-calculator"></i> Ödemeler</a>
+            </nav>
+            <div class="logout">
+                <button onclick="logout()">Çıkış Yap</button>
+            </div>
+        </div>
+        <div class="content">
+            <div class="header">
+                <h2>Ajans Panel Logo</h2>
+                <span style="float: right;">
+                    <div class="user">
+                        <i class="fas fa-user-circle"></i> <span id="username">Loading...</span>
+                    </div>
+                    
+                </span>
+            </div>
+        </div>
+        <h1>Dashboard</h1>
+        
+        
+            </div>
+        </div>
+        <div class="spent-container">
+            <div class="spent-box">
+                <div id="totalSpent" style="font-size: 21px; color: #d40808; font-family:'Montserrat' , serif; font-weight: 500;">Toplam Harcama Yükleniyor...</div>
+            </div>
+        </div>
+        
+        <div class="revenue-container">
+            <div class="revenue-box">             
+                <div id="totalRevenue" style="font-size: 21px; color: #0886d4; font-family:'Montserrat' , serif; font-weight: 500;">Toplam Kazanç Yükleniyor...</div>
+            </div>
+        </div>
+        
+        <div class="markasayi-container">
+            <div class="markasayi-box">                
+                <div id="totalMarkasayi" style="font-size: 21px; color: #8208d4; font-family:'Montserrat' , serif; font-weight: 500;">Çalışılan Marka Sayısı Yükleniyor...</div>
+            </div>
+        </div>
+        
+        <div class="chart-container">
+            <div class="chart-box">
+                <canvas id="roiBarChart"></canvas>
+            </div>
+        </div>
+        
+        <div class="pie-container">
+            <div class="pie-container2">
+                <h3>Bütçe Dağılımı</h3>
+                <canvas id="myPieChart"></canvas>
+            </div>
+        </div>
+        
+        
+             
+        
+
+        
+        <script>
+            // Kullanıcı bilgisi çekme
+            fetch('/getUsers')
+    .then(response => response.json())
+    .then(data => {
+        document.getElementById('username').innerText = data.username;
+    })
+    .catch(error => {
+        console.error('Kullanıcı adı alınamadı:', error);
+    });   
+   
+            // Logout fonksiyonu
+            function logout() {
+                fetch('/logout')
+                    .then(() => {
+                        window.location.href = '/login';
+                    });
+            }
+        
+            // Veritabanından aylık ROI verilerini çek ve Chart.js ile göster
+            fetch('/roi/monthly-roi')
+    .then(response => response.json())
+    .then(data => {
+        console.log('Veri Alındı:', data);
+        if (data.length === 0) {
+            console.log('Veri boş geldi!');
+        }
+        
+        // Verilerden ayları ve ROI değerlerini alıyoruz
+        const labels = data.map(item => item.ay);  
+        const roiValues = data.map(item => item.avg_roi);  
+
+        // Renkleri dinamik olarak belirliyoruz
+        const getColorForROI = (roi) => {
+            if (roi >= 1.6) {
+                return 'rgba(11, 247, 2, 0.9)';  // Aşırı parlak yeşil
+            } else if (roi >= 1.4) {
+                return 'rgba(155, 250, 30, 0.9)';  // Normal parlak yeşil
+            } else {
+                return 'rgba(239, 250, 30, 0.9)';  // Soluk yeşil
+            }
+        };
+
+        // Grafik verilerini hazırlıyoruz
+        const ctx = document.getElementById('roiBarChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Aylık ROI Ortalamaları',
+                    data: roiValues,
+                    backgroundColor: roiValues.map(getColorForROI),  // Renkleri dinamik olarak ayarlıyoruz
+                    borderColor: 'rgba(230, 230, 230, 1)',  // Sınır rengi
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Ortalama ROI'
+                        },
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    })
+    .catch(error => {
+        console.error('Veri alınamadı:', error);
+        
+        
+    });
+    fetch('/totalspent')
+        .then(response => response.json())
+        .then(data => {
+            // Yüklenen veriyi HTML'e yazma
+            document.getElementById('totalSpent').innerText = `${data.totalSpent} TL
+            
+            Toplam Harcama`;
+        })
+        .catch(error => {
+            console.error('Hata oluştu:', error);
+            document.getElementById('totalSpent').innerText = 'Veri yüklenemedi';
+        });
+
+        fetch('/totalrevenue')
+        .then(response => response.json())
+        .then(data => {
+            // Yüklenen veriyi HTML'e yazma
+            document.getElementById('totalRevenue').innerText = `${data.totalRevenue} TL
+            
+            Toplam Kazanç`;
+        })
+        .catch(error => {
+            console.error('Hata oluştu:', error);
+            document.getElementById('totalRevenue').innerText = 'Veri yüklenemedi';
+        });
+
+        fetch('/totalmarkasayi') // API endpoint
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('totalMarkasayi').innerHTML = `${data.totalMarkasayi} <br><br>Çalışılan Markalar`;
+        })
+        .catch(error => console.error('Hata:', error));
+        
+        fetch('/piedata')
+            .then(response => response.json())
+            .then(data => {
+                const ctx = document.getElementById('myPieChart').getContext('2d');
+                new Chart(ctx, {
+                    type: 'pie',
+                    data: data,  // Controller'dan gelen veri
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            legend: {
+                                position: 'top',
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(tooltipItem) {
+                                        return tooltipItem.label + ': ' + tooltipItem.raw + '%';  // Yüzde ekleme
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            })
+            .catch(error => console.error('Hata oluştu:', error));
+
+
+        </script>
+        

@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ödemeler</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<style> 
+/* CSS kodları */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #efeff2; 
+}
+
+.sidebar {
+    width: 210px;
+    height: 100vh;
+    background-color: #f8f8fb; 
+    color: #fff;
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 20px;
+    z-index: 100;
+}
+
+.sidebar .logo img {
+    border-radius: 0%; 
+    width: 250px;
+    display: relative;
+    margin-top:-20.5px;
+    margin-left:-20px;    
+    
+}
+
+.sidebar .user {
+    text-align: center;
+    font-size: 19px;
+    margin-bottom: 20px;
+}
+
+.sidebar .user i {
+    font-size: 30px;
+    margin-bottom: 10px;
+    color: #d7ccc8; 
+}
+
+.sidebar .menu a {
+    margin-top:10px;
+    display: block;
+    color: #163662;
+    padding: 10px 0;
+    text-decoration: none;
+}
+
+.sidebar .menu ul li a {
+    padding-left: 20px;
+    color: #ddd;
+    font-size: 14px;
+}
+
+.sidebar .menu a:hover {
+    background-color: #e1e4e4; 
+    border-radius: 0px;
+    width: 250px;
+    margin-left: -18px;
+}
+
+.sidebar .menu a.active {
+    margin-top: 10px;
+    background-color: #e1e4e4; 
+    border-radius: 0px;
+    width:250px;
+    margin-left: -18px;
+}
+
+.logout {
+    text-align: center;
+}
+
+.logout button {
+    background-color: #e00000; 
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+    margin-top:350px;
+}
+
+.logout button:hover {
+    background-color: #a60000; 
+}
+
+.content {
+    margin-left: 0px;
+    position: relative;
+    z-index: 10;
+}
+
+.header {
+    margin-bottom: 20px;
+    background-color: #1a3c6b;
+    padding: 10px 15px;
+    height: 40px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header h2 {
+    margin: 0;
+    color: #ffffff;
+}
+
+.header span {
+    color: #ffffff;
+}
+
+.menu p {
+    margin-left: -3px;
+    color: #163662;
+}
+
+.menu li {
+    margin-left: 0px;
+    color: #163662;
+}
+
+.sidebar .menu ul li .yozo-link {
+    color: #163662; /* Ana Sayfa ile aynı renk */
+    padding: 10px 20px; /* Ana Sayfa ile aynı iç boşluk */
+    text-decoration: none; /* Alt çizgiyi kaldır */
+    display: block; /* Genişlik kontrolü için blok eleman */
+    width: 100%; /* Menü genişliğini doldur */
+    border-radius: 0; /* Köşe yuvarlamasını sıfırla */
+    background-color: transparent; /* Varsayılan arka plan */
+}
+
+.sidebar .menu ul li .yozo-link:hover {
+    background-color: #e1e4e4; /* Hover sırasında arka plan */
+    color: #163662; /* Hover sırasında metin rengi */
+    border-radius: 0; /* Köşe yuvarlamasını sıfırla */
+    margin-right: -10px; /* Dış boşluk sıfır */
+    padding: 10px 20px; /* Ana Sayfa ile aynı padding */
+}
+
+/* Tablonun genel düzeni */
+#odemebilgiTable {
+    width: 70%;  /* Tablo genişliğini ayarlayın */
+    margin: 20px auto;  /* Ortalamak için */
+    border-collapse: collapse;  /* Hücre sınırlarını birleştirir */
+    background-color: #ffffff;  /* Arka plan rengi */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);  /* Hafif gölge */
+    border-radius: 8px;  /* Yuvarlatılmış köşeler */
+    margin-left: 340px;
+    z-index:0;
+}
+
+/* Başlık satırı (thead) */
+#odemebilgiTable thead {
+    background-color: #626263;  /* Başlık satırının arka plan rengi */
+    color: white;  /* Başlık metni rengi */
+    text-transform: uppercase;  /* Harfleri büyük yapar */
+}
+
+#odemebilgiTable th {
+    padding: 12px;  /* Başlık hücrelerine iç boşluk */
+    text-align: center;  /* Başlık hücrelerini ortala */
+    border: 1px solid #ddd;  /* Sınır rengi */
+}
+
+/* Tablo gövdesi (tbody) */
+#odemebilgiTable tbody {
+    background-color: #f9f9f9;  /* Tablo gövdesinin arka plan rengi */
+}
+
+#odemebilgiTable td {
+    padding: 10px;  /* Hücrelere iç boşluk */
+    text-align: center;  /* Verileri ortala */
+    border: 1px solid #ddd;  /* Hücrelerin sınırları */
+}
+
+/* Satır hover efekti */
+#odemebilgiTable tbody tr:hover {
+    background-color: #e1e4e4;  /* Hover durumunda arka plan rengi */
+}
+
+/* Alternatif satır renkleri */
+#odemebilgiTable tbody tr:nth-child(even) {
+    background-color: #f1f1f1;  /* Çift numaralı satırlar için */
+}
+
+#odemebilgiTable tbody tr:nth-child(odd) {
+    background-color: #ffffff;  /* Tek numaralı satırlar için */
+}
+
+/* Tabloyu daha estetik hale getirmek için */
+#odemebilgiTable th, #odemebilgiTable td {
+    border-radius: 4px;  /* Yuvarlatılmış köşeler */
+}
+
+#odemebilgiTable td {
+    font-size: 12px;  /* Hücrelerdeki yazı boyutunu ayarlama */
+}
+
+/* Tabloyu yatay kaydırılabilir hale getirmek için */
+#odemebilgiTable_wrapper {
+    overflow-x: auto;
+    max-width: 100%;
+}
+
+ /* Filtreleme formunun genel düzeni */
+#filterForm {
+    width: 40%; /* Form genişliği */
+    margin: 20px auto; /* Ortalamak için */
+    display: flex; /* Form öğelerini yatay hizalamak için */
+    justify-content: space-around; /* Form öğeleri arasında eşit boşluk bırakır */
+    align-items: center; /* Form öğelerini dikey ortalar */
+    padding: 10px 20px; /* İç boşluk */
+    background-color: #ffffff; /* Arka plan rengi */
+    border: 1px solid #ddd; /* Çerçeve rengi */
+    border-radius: 8px; /* Yuvarlatılmış köşeler */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Hafif gölge efekti */
+    margin-left: 530px;
+}
+
+/* Formdaki etiketler */
+#filterForm label {
+    font-size: 14px; /* Yazı boyutu */
+    color: #333; /* Yazı rengi */
+    margin-right: 10px; /* Sağ boşluk */
+}
+
+/* Formdaki giriş alanları */
+#filterForm input[type="number"] {
+    width: 100px; /* Giriş alanı genişliği */
+    padding: 5px; /* İç boşluk */
+    border: 1px solid #ccc; /* Çerçeve rengi */
+    border-radius: 4px; /* Yuvarlatılmış köşeler */
+    font-size: 14px; /* Yazı boyutu */
+    text-align: center; /* Metni ortala */
+}
+
+/* Filtreleme butonu */
+#filterForm button {
+    background-color: #626263; /* Buton arka plan rengi */
+    color: #fff; /* Yazı rengi */
+    border: none; /* Çerçeve yok */
+    padding: 8px 15px; /* İç boşluk */
+    font-size: 14px; /* Yazı boyutu */
+    border-radius: 4px; /* Yuvarlatılmış köşeler */
+    cursor: pointer; /* Fare imlecini butona değiştirir */
+    transition: background-color 0.3s ease; /* Renk değişim geçişi */
+}
+
+/* Buton hover efekti */
+#filterForm button:hover {
+    background-color: #163662; /* Hover durumunda arka plan rengi */
+}
+
+h1{
+    text-align:center;
+    margin-left: 185px;
+    font-family: "Montserrat" , serif;
+    font-size: 40px;
+}
+
+a {
+    position: relative;
+    z-index: 100; /* a'yı üstte tutar */
+}
+
+
+
+
+</style> 
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="logo">
+                <img src='/pic/logo.png' alt="AjansPanelLogo" >
+            
+            </div>
+            
+            <nav class="menu">
+                <a href="/anasayfa" class="anasayfa-link"><i class="fas fa-home"></i> Ana Sayfa</a>
+                <p><i class="fa-solid fa-tag"></i> Markalar</p>
+
+                <ul>
+                    <li><a href="/yozoUrban" class="yozo-link">Yozo Urban</a></li>
+                </ul>
+                
+                <a href="/ekipler"><i class="fa-solid fa-people-group"></i> Ekipler</a>
+                <a href="/odemeler" class="active"><i class="fas fa-calculator"></i> Ödemeler</a>
+               
+            </nav>
+            <div class="logout">
+                <button onclick="logout()">Çıkış Yap</button>
+            </div>
+        </div>
+    </div>
+        <div class="content">
+            <div class="header">
+                <h2>Ajans Panel Logo</h2>
+                <span style="float: right;"><div class="user">
+                    <i class="fas fa-user-circle"></i> <span id="username">Loading...</span>
+                </div></span>
+            </div>
+
+            <h1>Yozo Urban Ödemeler</h1>
+
+            <form id="filterForm">
+                <label for="durum">Ödeme Durumu:</label>
+                <input type="text" id="durum" name="durum" list="durumlar" placeholder="Durum Seçin" required>
+                <datalist id="durumlar">
+                  <option value="Yapıldı.">
+                  <option value="Eksik Yapıldı.">
+                  <option value="Gecikti.">
+                  <option value="Yapılmadı.">
+                </datalist>                                        
+        
+                <button type="submit">Filtrele</button>
+            </form>
+        
+            <table id="odemebilgiTable">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Ay</th>
+                  <th>Yıl</th>
+                  <th>Ödeme Durumu</th>
+                  <th>Borç Durumu</th>
+                  
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Kampanya verileri buraya dinamik olarak yüklenecek -->
+              </tbody>
+            </table>
+    </div>
+    </div>
+
+    <script>
+        fetch('/getUsers')
+    .then(response => response.json())
+    .then(data => {
+        document.getElementById('username').innerText = data.username;
+    })
+    .catch(error => {
+        console.error('Kullanıcı adı alınamadı:', error);
+    });
+
+        // Logout fonksiyonu
+        function logout() {
+            fetch('/logout')
+                .then(() => {
+                    window.location.href = '/login';
+                });
+        }
+
+        document.getElementById('filterForm').addEventListener('submit', function (e) {
+    e.preventDefault(); // Sayfanın yeniden yüklenmesini engeller
+
+    const validStatuses = ["Yapıldı.", "Eksik Yapıldı.", "Gecikti.", "Yapılmadı."];
+    const durumInput = document.getElementById("durum");
+    const odeme_durumu = durumInput.value;
+
+    // Geçersiz durum kontrolü
+    if (!validStatuses.includes(odeme_durumu)) {
+        alert("Lütfen geçerli bir durum seçin: Yapıldı., Eksik Yapıldı., Gecikti., Yapılmadı.");
+        return; // İşlemi durdur
+    }
+
+    fetch(`/odeme/odeme-bilgi?odeme_durumu=${odeme_durumu}`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            const tableBody = document.querySelector('#odemebilgiTable tbody');
+            tableBody.innerHTML = ''; // Eski tabloyu temizler
+
+            data.forEach(row => {
+                const tr = document.createElement('tr');
+                for (let key in row) {
+                    const td = document.createElement('td');
+                    td.textContent = row[key];
+                    tr.appendChild(td);
+                }
+                tableBody.appendChild(tr);
+            });
+        })
+        .catch(error => {
+            console.error('Filtreleme sırasında hata:', error);
+        });
+});
+
+    </script>
+</body>
+</html>

@@ -13,7 +13,7 @@
 
 </head>
 <style> 
-/* CSS'in aynısı */
+
 body {
     margin: 0;
     padding: 0;
@@ -23,12 +23,12 @@ body {
 
 .sidebar {
     width: 210px;
-    height: 200vh; /* Yükseklik 200vh olarak ayarlandı */
+    height: 200vh; 
     background-color: #f8f8fb; 
     color: #fff;
     position: absolute;
     left: 0;
-    top: 0; /* Üstten sıfır olarak ayarlandı */
+    top: 0; 
     padding: 20px;
     z-index: 1000;
 }
@@ -139,13 +139,13 @@ body {
 }
 
 .sidebar .menu ul li .yozo-link {
-    color: #163662; /* Ana Sayfa ile aynı renk */
-    padding: 10px 20px; /* Ana Sayfa ile aynı iç boşluk */
-    text-decoration: none; /* Alt çizgiyi kaldır */
-    display: block; /* Genişlik kontrolü için blok eleman */
-    width: 100%; /* Menü genişliğini doldur */
-    border-radius: 0; /* Köşe yuvarlamasını sıfırla */
-    background-color: transparent; /* Varsayılan arka plan */
+    color: #163662; 
+    padding: 10px 20px; 
+    text-decoration: none; 
+    display: block; 
+    width: 100%; 
+    border-radius: 0; 
+    background-color: transparent; 
 }
 
 .sidebar .menu ul li .yozo-link:hover {
@@ -157,123 +157,123 @@ body {
 }
 
 
-/* Tablonun genel düzeni */
+
 #ekipperformansTable {
-    width: 30%;  /* Tablo genişliğini ayarlayın */
-    margin: 20px auto;  /* Ortalamak için */
-    border-collapse: collapse;  /* Hücre sınırlarını birleştirir */
-    background-color: #ffffff;  /* Arka plan rengi */
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);  /* Hafif gölge */
-    border-radius: 8px;  /* Yuvarlatılmış köşeler */
+    width: 30%;  
+    margin: 20px auto; 
+    border-collapse: collapse; 
+    background-color: #ffffff;  
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);  
+    border-radius: 8px;  
     margin-left: 340px;
 }
 
-/* Başlık satırı (thead) */
+
 #ekipperformansTable thead {
-    background-color: #673e1d;  /* Başlık satırının arka plan rengi */
-    color: white;  /* Başlık metni rengi */
-    text-transform: uppercase;  /* Harfleri büyük yapar */
+    background-color: #673e1d;  
+    color: white;  
+    text-transform: uppercase;  
 }
 
 #ekipperformansTable th {
-    padding: 12px;  /* Başlık hücrelerine iç boşluk */
-    text-align: center;  /* Başlık hücrelerini ortala */
-    border: 1px solid #ddd;  /* Sınır rengi */
+    padding: 12px;  
+    text-align: center;  
+    border: 1px solid #ddd;  
 }
 
-/* Tablo gövdesi (tbody) */
+
 #ekipperformansTable tbody {
-    background-color: #f9f9f9;  /* Tablo gövdesinin arka plan rengi */
+    background-color: #f9f9f9; 
 }
 
 #ekipperformansTable td {
-    padding: 10px;  /* Hücrelere iç boşluk */
-    text-align: center;  /* Verileri ortala */
-    border: 1px solid #ddd;  /* Hücrelerin sınırları */
+    padding: 10px;  
+    text-align: center;  
+    border: 1px solid #ddd;  
 }
 
-/* Satır hover efekti */
+
 #ekipperformansTable tbody tr:hover {
-    background-color: #e1e4e4;  /* Hover durumunda arka plan rengi */
+    background-color: #e1e4e4; 
 }
 
-/* Alternatif satır renkleri */
+
 #ekipperformansTable tbody tr:nth-child(even) {
-    background-color: #f1f1f1;  /* Çift numaralı satırlar için */
+    background-color: #f1f1f1;  
 }
 
 #ekipperformansTable tbody tr:nth-child(odd) {
-    background-color: #ffffff;  /* Tek numaralı satırlar için */
+    background-color: #ffffff;  
 }
 
-/* Tabloyu daha estetik hale getirmek için */
+
 #ekipperformansTable th, #kampanyaTable td {
-    border-radius: 4px;  /* Yuvarlatılmış köşeler */
+    border-radius: 4px;  
 }
 
 #ekipperformansTable td {
-    font-size: 12px;  /* Hücrelerdeki yazı boyutunu ayarlama */
+    font-size: 12px; 
 }
 
-/* Tabloyu yatay kaydırılabilir hale getirmek için */
+
 #ekipperformansTable_wrapper {
     overflow-x: auto;
     max-width: 100%;
 }
 
- /* Filtreleme formunun genel düzeni */
+
 #filterForm {
-    width: 20%; /* Form genişliği */
-    margin: 20px auto; /* Ortalamak için */
-    display: flex; /* Form öğelerini yatay hizalamak için */
-    justify-content: space-around; /* Form öğeleri arasında eşit boşluk bırakır */
-    align-items: center; /* Form öğelerini dikey ortalar */
-    padding: 10px 20px; /* İç boşluk */
-    background-color: #ffffff; /* Arka plan rengi */
-    border: 1px solid #ddd; /* Çerçeve rengi */
-    border-radius: 8px; /* Yuvarlatılmış köşeler */
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Hafif gölge efekti */
+    width: 20%; 
+    margin: 20px auto; 
+    display: flex; 
+    justify-content: space-around; 
+    align-items: center; 
+    padding: 10px 20px; 
+    background-color: #ffffff; 
+    border: 1px solid #ddd; 
+    border-radius: 8px; 
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); 
     margin-left: 390px;
 }
 
-/* Formdaki etiketler */
+
 #filterForm label {
-    font-size: 14px; /* Yazı boyutu */
-    color: #333; /* Yazı rengi */
-    margin-right: 10px; /* Sağ boşluk */
+    font-size: 14px; 
+    color: #333; 
+    margin-right: 10px; 
 }
 
-/* Formdaki giriş alanları */
+
 #filterForm input[type="number"] {
-    width: 100px; /* Giriş alanı genişliği */
-    padding: 5px; /* İç boşluk */
-    border: 1px solid #ccc; /* Çerçeve rengi */
-    border-radius: 4px; /* Yuvarlatılmış köşeler */
-    font-size: 14px; /* Yazı boyutu */
-    text-align: center; /* Metni ortala */
+    width: 100px; 
+    padding: 5px; 
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+    font-size: 14px; 
+    text-align: center; 
 }
 
-/* Filtreleme butonu */
+
 #filterForm button {
-    background-color: #673e1d; /* Buton arka plan rengi */
-    color: #fff; /* Yazı rengi */
-    border: none; /* Çerçeve yok */
-    padding: 8px 15px; /* İç boşluk */
-    font-size: 14px; /* Yazı boyutu */
-    border-radius: 4px; /* Yuvarlatılmış köşeler */
-    cursor: pointer; /* Fare imlecini butona değiştirir */
-    transition: background-color 0.3s ease; /* Renk değişim geçişi */
+    background-color: #673e1d; 
+    color: #fff; 
+    border: none; 
+    padding: 8px 15px; 
+    font-size: 14px; 
+    border-radius: 4px; 
+    cursor: pointer; 
+    transition: background-color 0.3s ease; 
 }
 
-/* Buton hover efekti */
+
 #filterForm button:hover {
-    background-color: #163662; /* Hover durumunda arka plan rengi */
+    background-color: #163662;
 }
 
 #ekipkarsilastirmaChart {
 
-width: 70% !important;   /* Ekrana tam genişlik */
-    height: 300px !important; /* Sabit yükseklik */
+width: 70% !important;   
+    height: 300px !important; 
     margin-left: 66px;
     margin-top: 30px;
     z-index: 1000;
@@ -285,17 +285,16 @@ width: 70% !important;   /* Ekrana tam genişlik */
 display: flex;
 justify-content: center;
 align-items: center;
-margin-top: 50px; /* İsteğe bağlı, grafiğin üst kısmında boşluk */
+margin-top: 50px; 
 }
 
 .ekipkarsilastirma-container2 {
-background-color: white;  /* Beyaz arka plan */
-padding: auto;  /* İç boşluk */
-border-radius: 10px;  /* Köşe yuvarlama */
-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Gölge efekti */
-width: 30%;  /* Ekrana uygun genişlik */
- /* Maksimum genişlik */
-height: 400px;  /* Sabit yükseklik, ihtiyaca göre değiştirilebilir */
+background-color: white; 
+padding: auto;  
+border-radius: 10px;  
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  
+width: 30%; 
+height: 400px;  
 position:absolute;
 bottom:73px;
 align-items: center;
@@ -373,7 +372,7 @@ h3 {
           </tr>
         </thead>
         <tbody>
-          <!-- Kampanya verileri buraya dinamik olarak yüklenecek -->
+        
         </tbody>
       </table>
     
@@ -398,7 +397,7 @@ h3 {
         console.error('Kullanıcı adı alınamadı:', error);
     });
 
-        // Logout fonksiyonu
+  
         function logout() {
             fetch('/logout')
                 .then(() => {
@@ -407,8 +406,7 @@ h3 {
         }
 
         document.getElementById('filterForm').addEventListener('submit', function (e) {
-            e.preventDefault(); // Sayfanın yeniden yüklenmesini engeller
-
+            e.preventDefault(); 
             const ekip_id = document.getElementById('ekip_id').value;
             
 
@@ -416,7 +414,7 @@ h3 {
                 .then(response => response.json())
                 .then(data => {
                     const tableBody = document.querySelector('#ekipperformansTable tbody');
-                    tableBody.innerHTML = ''; // Eski tabloyu temizler
+                    tableBody.innerHTML = ''; 
 
                     data.forEach(row => {
                         const tr = document.createElement('tr');
@@ -440,7 +438,7 @@ fetch('/Ekipkarsilastirmadata')
     const ctx = document.getElementById('ekipkarsilastirmaChart').getContext('2d');
     new Chart(ctx, {
         type: 'doughnut',
-        data: data,  // Controller'dan gelen veri
+        data: data,  
         options: {
             responsive: true,
             plugins: {
@@ -450,7 +448,7 @@ fetch('/Ekipkarsilastirmadata')
                 tooltip: {
                     callbacks: {
                         label: function(tooltipItem) {
-                            return tooltipItem.label + ': ' + tooltipItem.raw + '%';  // Yüzde ekleme
+                            return tooltipItem.label + ': ' + tooltipItem.raw + '%';  
                         }
                     }
                 }

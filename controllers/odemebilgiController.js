@@ -1,26 +1,22 @@
-const pool = require('../db'); // Veritabanı bağlantısı
+const pool = require('../db');
 
-// Verileri filtrelemek için güncel asenkron fonksiyon
 async function getOdemebilgiData(req, res) {
-  const { odeme_durumu } = req.query; // Query parametrelerini alıyoruz
+  const { odeme_durumu } = req.query; 
 
   try {
-    // Varsayılan sorgu
     let query = 'SELECT * FROM odemeler';
     const params = [];
 
- // Eğer sadece "ekip_id" verilmişse
 if (odeme_durumu) {
     query += ' WHERE odeme_durumu = ?';
     params.push(odeme_durumu);
   } else {
-    // Eğer hiçbir filtre yoksa tüm kayıtları getir
-    query += ' WHERE 1'; // "1" tüm kayıtları getirecek bir dummy koşuldur
+    query += ' WHERE 1'; 
   }
   
 
-    const [rows] = await pool.query(query, params); // Sorguyu çalıştır
-    res.json(rows); // JSON formatında sonuçları döndür
+    const [rows] = await pool.query(query, params); 
+    res.json(rows); 
   } catch (error) {
     console.error('Veri alırken hata oluştu:', error);
     res.status(500).json({ error: 'Veri alınamadı' });

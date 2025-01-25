@@ -1,4 +1,3 @@
-// Sabit verilerinizi const olarak tanımlıyoruz
 const monthlyData = [
     { ay: "Ocak", avg_roi: 1.47 },
     { ay: "Şubat", avg_roi: 1.2 },
@@ -16,7 +15,6 @@ const monthlyData = [
 
 exports.getMonthlyROI = async (req, res) => {
     try {
-        // Sabit verileri JSON formatında frontend'e gönderiyoruz
         res.json(monthlyData);
     } catch (err) {
         console.error("Veri Hatası:", err);

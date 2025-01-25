@@ -1,4 +1,4 @@
-// Sabit verilerinizi const olarak tanımlıyoruz
+
 const platformData = [
     { platform_ad: "1-Instagram", toplam_gelir: 910085 },
     { platform_ad: "2-Facebook", toplam_gelir: 86545 },
@@ -9,7 +9,7 @@ const platformData = [
 
 exports.getPlatformPerformans = async (req, res) => {
     try {
-        // Sabit verileri JSON formatında frontend'e gönderiyoruz
+
         res.json(platformData);
     } catch (err) {
         console.error("Veri Hatası:", err);

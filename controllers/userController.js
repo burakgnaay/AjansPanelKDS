@@ -6,13 +6,11 @@ exports.getUser = async (req, res) => {
     if (rows.length > 0) {
       let username = rows[0].kullanici_ad;
 
-      // Kullanıcı adı eşlemesi
       const userMapping = {
         "bgunay9": "Burak Günay",
         "etopcu13": "Eren Topcu"
       };
 
-      // Eğer eşleşme varsa, kullanıcı adı değiştir
       if (userMapping[username]) {
         username = userMapping[username];
       }

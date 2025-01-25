@@ -1,6 +1,5 @@
 const mysql = require('mysql2');
 
-// Veritabanı bağlantısı
 const db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
@@ -13,7 +12,6 @@ db.connect((err) => {
     console.log('Veritabanı bağlantısı başarılı!');
 });
 
-// Toplam harcama sorgusu
 const getTotalSpent = (req, res) => {
     const query = 'SELECT SUM(spent) AS totalSpent FROM kampanya_performans';
     db.query(query, (err, result) => {

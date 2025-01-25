@@ -3,7 +3,7 @@ const db = require('../db');
 const path = require('path');
 
 exports.showLoginPage = (req, res) => {
-    res.sendFile(path.join(__dirname, '../views/login.html')); // login.html'i gönder
+    res.sendFile(path.join(__dirname, '../views/login.html')); 
 };
 
 exports.handleLogin = async (req, res) => {
@@ -16,7 +16,7 @@ exports.handleLogin = async (req, res) => {
             req.session.user = rows[0];
             res.redirect('/anasayfa');
         } else {
-            res.sendFile(path.join(__dirname, '../views/error.html')); // Başarısız girişte error.html göster
+            res.sendFile(path.join(__dirname, '../views/error.html')); 
         }
     } catch (error) {
         console.error(error);
@@ -27,14 +27,14 @@ exports.handleLogin = async (req, res) => {
 
 exports.showDashboard = (req, res) => {
     if (!req.session.user) {
-        return res.redirect('/login'); // Giriş yapılmamışsa login sayfasına yönlendir
+        return res.redirect('/login');
     }
-    res.sendFile(path.join(__dirname, '../views/anasayfa.html')); // Anasayfa dosyasını gönder
+    res.sendFile(path.join(__dirname, '../views/anasayfa.html')); 
 };
 
 exports.handleLogout = (req, res) => {
     req.session.destroy(() => {
-        res.redirect('/login'); // Çıkış sonrası login sayfasına yönlendir
+        res.redirect('/login'); 
     });
 };
 

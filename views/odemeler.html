@@ -138,135 +138,135 @@ body {
 }
 
 .sidebar .menu ul li .yozo-link {
-    color: #163662; /* Ana Sayfa ile aynı renk */
-    padding: 10px 20px; /* Ana Sayfa ile aynı iç boşluk */
-    text-decoration: none; /* Alt çizgiyi kaldır */
-    display: block; /* Genişlik kontrolü için blok eleman */
-    width: 100%; /* Menü genişliğini doldur */
-    border-radius: 0; /* Köşe yuvarlamasını sıfırla */
-    background-color: transparent; /* Varsayılan arka plan */
+    color: #163662; 
+    padding: 10px 20px; 
+    text-decoration: none; 
+    display: block; 
+    width: 100%; 
+    border-radius: 0; 
+    background-color: transparent; 
 }
 
 .sidebar .menu ul li .yozo-link:hover {
-    background-color: #e1e4e4; /* Hover sırasında arka plan */
-    color: #163662; /* Hover sırasında metin rengi */
-    border-radius: 0; /* Köşe yuvarlamasını sıfırla */
-    margin-right: -10px; /* Dış boşluk sıfır */
-    padding: 10px 20px; /* Ana Sayfa ile aynı padding */
+    background-color: #e1e4e4; 
+    color: #163662; 
+    border-radius: 0; 
+    margin-right: -10px; 
+    padding: 10px 20px; 
 }
 
-/* Tablonun genel düzeni */
+
 #odemebilgiTable {
-    width: 70%;  /* Tablo genişliğini ayarlayın */
-    margin: 20px auto;  /* Ortalamak için */
-    border-collapse: collapse;  /* Hücre sınırlarını birleştirir */
-    background-color: #ffffff;  /* Arka plan rengi */
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);  /* Hafif gölge */
-    border-radius: 8px;  /* Yuvarlatılmış köşeler */
+    width: 70%; 
+    margin: 20px auto; 
+    border-collapse: collapse; 
+    background-color: #ffffff;  
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);  
+    border-radius: 8px; 
     margin-left: 340px;
     z-index:0;
 }
 
-/* Başlık satırı (thead) */
+
 #odemebilgiTable thead {
-    background-color: #626263;  /* Başlık satırının arka plan rengi */
-    color: white;  /* Başlık metni rengi */
-    text-transform: uppercase;  /* Harfleri büyük yapar */
+    background-color: #626263;  
+    color: white;  
+    text-transform: uppercase;  
 }
 
 #odemebilgiTable th {
-    padding: 12px;  /* Başlık hücrelerine iç boşluk */
-    text-align: center;  /* Başlık hücrelerini ortala */
-    border: 1px solid #ddd;  /* Sınır rengi */
+    padding: 12px;  
+    text-align: center; 
+    border: 1px solid #ddd;  
 }
 
-/* Tablo gövdesi (tbody) */
+
 #odemebilgiTable tbody {
-    background-color: #f9f9f9;  /* Tablo gövdesinin arka plan rengi */
+    background-color: #f9f9f9;  
 }
 
 #odemebilgiTable td {
-    padding: 10px;  /* Hücrelere iç boşluk */
-    text-align: center;  /* Verileri ortala */
-    border: 1px solid #ddd;  /* Hücrelerin sınırları */
+    padding: 10px;  
+    text-align: center;  
+    border: 1px solid #ddd;  
 }
 
-/* Satır hover efekti */
+
 #odemebilgiTable tbody tr:hover {
-    background-color: #e1e4e4;  /* Hover durumunda arka plan rengi */
+    background-color: #e1e4e4;  
 }
 
-/* Alternatif satır renkleri */
+
 #odemebilgiTable tbody tr:nth-child(even) {
-    background-color: #f1f1f1;  /* Çift numaralı satırlar için */
+    background-color: #f1f1f1;  
 }
 
 #odemebilgiTable tbody tr:nth-child(odd) {
-    background-color: #ffffff;  /* Tek numaralı satırlar için */
+    background-color: #ffffff;  
 }
 
-/* Tabloyu daha estetik hale getirmek için */
+
 #odemebilgiTable th, #odemebilgiTable td {
-    border-radius: 4px;  /* Yuvarlatılmış köşeler */
+    border-radius: 4px;  
 }
 
 #odemebilgiTable td {
-    font-size: 12px;  /* Hücrelerdeki yazı boyutunu ayarlama */
+    font-size: 12px;  
 }
 
-/* Tabloyu yatay kaydırılabilir hale getirmek için */
+
 #odemebilgiTable_wrapper {
     overflow-x: auto;
     max-width: 100%;
 }
 
- /* Filtreleme formunun genel düzeni */
+
 #filterForm {
-    width: 40%; /* Form genişliği */
-    margin: 20px auto; /* Ortalamak için */
-    display: flex; /* Form öğelerini yatay hizalamak için */
-    justify-content: space-around; /* Form öğeleri arasında eşit boşluk bırakır */
-    align-items: center; /* Form öğelerini dikey ortalar */
-    padding: 10px 20px; /* İç boşluk */
-    background-color: #ffffff; /* Arka plan rengi */
-    border: 1px solid #ddd; /* Çerçeve rengi */
-    border-radius: 8px; /* Yuvarlatılmış köşeler */
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Hafif gölge efekti */
+    width: 40%; 
+    margin: 20px auto; 
+    display: flex; 
+    justify-content: space-around; 
+    align-items: center; 
+    padding: 10px 20px; 
+    background-color: #ffffff; 
+    border: 1px solid #ddd; 
+    border-radius: 8px; 
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); 
     margin-left: 530px;
 }
 
-/* Formdaki etiketler */
+
 #filterForm label {
-    font-size: 14px; /* Yazı boyutu */
-    color: #333; /* Yazı rengi */
-    margin-right: 10px; /* Sağ boşluk */
+    font-size: 14px; 
+    color: #333; 
+    margin-right: 10px; 
 }
 
-/* Formdaki giriş alanları */
+
 #filterForm input[type="number"] {
-    width: 100px; /* Giriş alanı genişliği */
-    padding: 5px; /* İç boşluk */
-    border: 1px solid #ccc; /* Çerçeve rengi */
-    border-radius: 4px; /* Yuvarlatılmış köşeler */
-    font-size: 14px; /* Yazı boyutu */
-    text-align: center; /* Metni ortala */
+    width: 100px; 
+    padding: 5px; 
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+    font-size: 14px; 
+    text-align: center; 
 }
 
-/* Filtreleme butonu */
+
 #filterForm button {
-    background-color: #626263; /* Buton arka plan rengi */
-    color: #fff; /* Yazı rengi */
-    border: none; /* Çerçeve yok */
-    padding: 8px 15px; /* İç boşluk */
-    font-size: 14px; /* Yazı boyutu */
-    border-radius: 4px; /* Yuvarlatılmış köşeler */
-    cursor: pointer; /* Fare imlecini butona değiştirir */
-    transition: background-color 0.3s ease; /* Renk değişim geçişi */
+    background-color: #626263; 
+    color: #fff; 
+    border: none; 
+    padding: 8px 15px; 
+    font-size: 14px; 
+    border-radius: 4px; 
+    cursor: pointer; 
+    transition: background-color 0.3s ease; 
 }
 
-/* Buton hover efekti */
+
 #filterForm button:hover {
-    background-color: #163662; /* Hover durumunda arka plan rengi */
+    background-color: #163662; 
 }
 
 h1{
@@ -278,7 +278,7 @@ h1{
 
 a {
     position: relative;
-    z-index: 100; /* a'yı üstte tutar */
+    z-index: 100; 
 }
 
 
@@ -345,7 +345,7 @@ a {
                 </tr>
               </thead>
               <tbody>
-                <!-- Kampanya verileri buraya dinamik olarak yüklenecek -->
+               
               </tbody>
             </table>
     </div>
@@ -370,16 +370,16 @@ a {
         }
 
         document.getElementById('filterForm').addEventListener('submit', function (e) {
-    e.preventDefault(); // Sayfanın yeniden yüklenmesini engeller
+    e.preventDefault(); 
 
     const validStatuses = ["Yapıldı.", "Eksik Yapıldı.", "Gecikti.", "Yapılmadı."];
     const durumInput = document.getElementById("durum");
     const odeme_durumu = durumInput.value;
 
-    // Geçersiz durum kontrolü
+
     if (!validStatuses.includes(odeme_durumu)) {
         alert("Lütfen geçerli bir durum seçin: Yapıldı., Eksik Yapıldı., Gecikti., Yapılmadı.");
-        return; // İşlemi durdur
+        return; 
     }
 
     fetch(`/odeme/odeme-bilgi?odeme_durumu=${odeme_durumu}`)
@@ -391,7 +391,7 @@ a {
         })
         .then(data => {
             const tableBody = document.querySelector('#odemebilgiTable tbody');
-            tableBody.innerHTML = ''; // Eski tabloyu temizler
+            tableBody.innerHTML = ''; 
 
             data.forEach(row => {
                 const tr = document.createElement('tr');

@@ -2,7 +2,7 @@
 const path = require('path');
 
 exports.showLoginPage = (req, res) => {
-    res.sendFile(path.join(__dirname, '../views/login.html')); // login.html'in doğru yolu
+    res.sendFile(path.join(__dirname, '../views/login.html')); 
 };
 
 exports.handleLogin = async (req, res) => {
@@ -15,7 +15,7 @@ exports.handleLogin = async (req, res) => {
             req.session.user = rows[0];
             res.redirect('/dashboard');
         } else {
-            res.sendFile(path.join(__dirname, '../views/login.html')); // login.html'in doğru yolu
+            res.sendFile(path.join(__dirname, '../views/login.html')); 
         }
     } catch (error) {
         console.error(error);
@@ -27,7 +27,7 @@ exports.showDashboard = (req, res) => {
     if (!req.session.user) {
         return res.redirect('/login');
     }
-    res.sendFile(path.join(__dirname, '../views/anasayfa.html')); // dashboard.html'in doğru yolu
+    res.sendFile(path.join(__dirname, '../views/anasayfa.html')); 
 };
 
 exports.handleLogout = (req, res) => {

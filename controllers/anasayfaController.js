@@ -1,5 +1,5 @@
 const path = require('path');
 
 exports.showAnasayfaPage = (req, res) => {
-    res.sendFile(path.join(__dirname, '../views/anasayfa.html')); // anasayfa.html'in doğru yolu
+    res.sendFile(path.join(__dirname, '../views/anasayfa.html')); 
 };

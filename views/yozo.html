@@ -149,122 +149,120 @@
 
 }
 
-/* Tablonun genel düzeni */
 #kampanyaTable {
-    width: 70%;  /* Tablo genişliğini ayarlayın */
-    margin: 20px auto;  /* Ortalamak için */
-    border-collapse: collapse;  /* Hücre sınırlarını birleştirir */
-    background-color: #ffffff;  /* Arka plan rengi */
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);  /* Hafif gölge */
-    border-radius: 8px;  /* Yuvarlatılmış köşeler */
+    width: 70%;  
+    margin: 20px auto;  
+    border-collapse: collapse; 
+    background-color: #ffffff; 
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);  
+    border-radius: 8px; 
     margin-left: 340px;
 }
 
-/* Başlık satırı (thead) */
+
 #kampanyaTable thead {
-    background-color: #f4821e;  /* Başlık satırının arka plan rengi */
-    color: white;  /* Başlık metni rengi */
-    text-transform: uppercase;  /* Harfleri büyük yapar */
+    background-color: #f4821e;  
+    color: white;  
+    text-transform: uppercase;  
 }
 
 #kampanyaTable th {
-    padding: 12px;  /* Başlık hücrelerine iç boşluk */
-    text-align: center;  /* Başlık hücrelerini ortala */
-    border: 1px solid #ddd;  /* Sınır rengi */
+    padding: 12px; 
+    text-align: center;  
+    border: 1px solid #ddd; 
 }
 
-/* Tablo gövdesi (tbody) */
+
 #kampanyaTable tbody {
-    background-color: #f9f9f9;  /* Tablo gövdesinin arka plan rengi */
+    background-color: #f9f9f9; 
 }
 
 #kampanyaTable td {
-    padding: 10px;  /* Hücrelere iç boşluk */
-    text-align: center;  /* Verileri ortala */
-    border: 1px solid #ddd;  /* Hücrelerin sınırları */
+    padding: 10px; 
+    text-align: center; 
+    border: 1px solid #ddd;  
 }
 
-/* Satır hover efekti */
+
 #kampanyaTable tbody tr:hover {
-    background-color: #e1e4e4;  /* Hover durumunda arka plan rengi */
+    background-color: #e1e4e4; 
 }
 
-/* Alternatif satır renkleri */
 #kampanyaTable tbody tr:nth-child(even) {
-    background-color: #f1f1f1;  /* Çift numaralı satırlar için */
+    background-color: #f1f1f1;  
 }
 
 #kampanyaTable tbody tr:nth-child(odd) {
-    background-color: #ffffff;  /* Tek numaralı satırlar için */
+    background-color: #ffffff;  
 }
 
-/* Tabloyu daha estetik hale getirmek için */
+
 #kampanyaTable th, #kampanyaTable td {
-    border-radius: 4px;  /* Yuvarlatılmış köşeler */
+    border-radius: 4px;  
 }
 
 #kampanyaTable td {
-    font-size: 12px;  /* Hücrelerdeki yazı boyutunu ayarlama */
+    font-size: 12px;  
 }
 
-/* Tabloyu yatay kaydırılabilir hale getirmek için */
+
 #kampanyaTable_wrapper {
     overflow-x: auto;
     max-width: 100%;
 }
 
- /* Filtreleme formunun genel düzeni */
+
 #filterForm {
-    width: 40%; /* Form genişliği */
-    margin: 20px auto; /* Ortalamak için */
-    display: flex; /* Form öğelerini yatay hizalamak için */
-    justify-content: space-around; /* Form öğeleri arasında eşit boşluk bırakır */
-    align-items: center; /* Form öğelerini dikey ortalar */
-    padding: 10px 20px; /* İç boşluk */
-    background-color: #ffffff; /* Arka plan rengi */
-    border: 1px solid #ddd; /* Çerçeve rengi */
-    border-radius: 8px; /* Yuvarlatılmış köşeler */
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Hafif gölge efekti */
+    width: 40%; 
+    margin: 20px auto; 
+    display: flex; 
+    justify-content: space-around; 
+    align-items: center; 
+    padding: 10px 20px; 
+    background-color: #ffffff; 
+    border: 1px solid #ddd;
+    border-radius: 8px; 
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); 
     margin-left: 530px;
 }
 
-/* Formdaki etiketler */
+
 #filterForm label {
-    font-size: 14px; /* Yazı boyutu */
-    color: #333; /* Yazı rengi */
-    margin-right: 10px; /* Sağ boşluk */
+    font-size: 14px;
+    color: #333; 
+    margin-right: 10px; 
 }
 
-/* Formdaki giriş alanları */
+
 #filterForm input[type="number"] {
-    width: 100px; /* Giriş alanı genişliği */
-    padding: 5px; /* İç boşluk */
-    border: 1px solid #ccc; /* Çerçeve rengi */
-    border-radius: 4px; /* Yuvarlatılmış köşeler */
-    font-size: 14px; /* Yazı boyutu */
-    text-align: center; /* Metni ortala */
+    width: 100px; 
+    padding: 5px; 
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+    font-size: 14px; 
+    text-align: center; 
 }
 
-/* Filtreleme butonu */
+
 #filterForm button {
-    background-color: #f4821e; /* Buton arka plan rengi */
-    color: #fff; /* Yazı rengi */
-    border: none; /* Çerçeve yok */
-    padding: 8px 15px; /* İç boşluk */
-    font-size: 14px; /* Yazı boyutu */
-    border-radius: 4px; /* Yuvarlatılmış köşeler */
-    cursor: pointer; /* Fare imlecini butona değiştirir */
-    transition: background-color 0.3s ease; /* Renk değişim geçişi */
+    background-color: #f4821e;
+    color: #fff; 
+    border: none; 
+    padding: 8px 15px; 
+    font-size: 14px;
+    border-radius: 4px; 
+    cursor: pointer; 
+    transition: background-color 0.3s ease;
 }
 
-/* Buton hover efekti */
+
 #filterForm button:hover {
-    background-color: #163662; /* Hover durumunda arka plan rengi */
+    background-color: #163662; 
 }
    
 #icerikBarChart {
-        width: 90% !important;   /* Ekrana tam genişlik */
-        height: 280px !important; /* Sabit yükseklik */
+        width: 90% !important;  
+        height: 280px !important; 
         margin-left: 18px;
         margin-top: 40px;
         
@@ -274,17 +272,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 50px; /* İsteğe bağlı, grafiğin üst kısmında boşluk */
+    margin-top: 50px; 
 }
 
 .chart-box {
-    background-color: white;  /* Beyaz arka plan */
-    padding: auto;  /* İç boşluk */
-    border-radius: 10px;  /* Köşe yuvarlama */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Gölge efekti */
-    width: 35%;  /* Ekrana uygun genişlik */
-     /* Maksimum genişlik */
-    height: 330px;  /* Sabit yükseklik, ihtiyaca göre değiştirilebilir */
+    background-color: white;  
+    padding: auto; 
+    border-radius: 10px;  
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    width: 35%;  
+
+    height: 330px; 
     position:relative;
     top:10px;
     align-items: center;
@@ -292,8 +290,8 @@
 }
 
 #kampanyaturBarChart {
-        width: 85% !important;   /* Ekrana tam genişlik */
-        height: 420px !important; /* Sabit yükseklik */
+        width: 85% !important;  
+        height: 420px !important; 
         margin-left: 30px;
         margin-top: 30px;
         
@@ -303,18 +301,18 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 50px; /* İsteğe bağlı, grafiğin üst kısmında boşluk */
+    margin-top: 50px; 
     
 }
 
 .kampanyatur-box {
-    background-color: white;  /* Beyaz arka plan */
-    padding: auto;  /* İç boşluk */
-    border-radius: 10px;  /* Köşe yuvarlama */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Gölge efekti */
-    width: 70%;  /* Ekrana uygun genişlik */
-     /* Maksimum genişlik */
-    height: 450px;  /* Sabit yükseklik, ihtiyaca göre değiştirilebilir */
+    background-color: white;  
+    padding: auto;  
+    border-radius: 10px;  
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    width: 70%;  
+ 
+    height: 450px;  
     position:relative;
     top:-369px;
     align-items: center;
@@ -322,8 +320,8 @@
 }
 
 #platformBarChart {
-        width: 85% !important;   /* Ekrana tam genişlik */
-        height: 300px !important; /* Sabit yükseklik */
+        width: 85% !important;   
+        height: 300px !important; 
         margin-left: 30px;
         margin-top: 30px;
         
@@ -333,18 +331,18 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 50px; /* İsteğe bağlı, grafiğin üst kısmında boşluk */
+    margin-top: 50px; 
     
 }
 
 .platform-box {
-    background-color: white;  /* Beyaz arka plan */
-    padding: auto;  /* İç boşluk */
-    border-radius: 10px;  /* Köşe yuvarlama */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Gölge efekti */
-    width: 40%;  /* Ekrana uygun genişlik */
-     /* Maksimum genişlik */
-    height: 330px;  /* Sabit yükseklik, ihtiyaca göre değiştirilebilir */
+    background-color: white;  
+    padding: auto; 
+    border-radius: 10px;  
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    width: 40%;  
+
+    height: 330px;  
     position:relative;
     top:-369px;
     align-items: center;
@@ -390,7 +388,7 @@
         <input type="number" id="ay" name="ay" min="1" max="12" placeholder="1-12" required>
 
         <label for="yil">Yıl:</label>
-        <input type="number" id="yil" name="yil" value="2022" readonly> <!-- Sadece 2022'yi kabul edecek -->
+        <input type="number" id="yil" name="yil" value="2022" readonly> 
 
         <button type="submit">Filtrele</button>
     </form>
@@ -410,11 +408,11 @@
           <th>DÖNÜŞÜM ORANI (%)</th>
           <th>GELİR</th>
           <th>ETKİLEŞİM ORANI (%)</th>
-          <!-- Diğer sütunları buraya ekleyebilirsiniz -->
+     
         </tr>
       </thead>
       <tbody>
-        <!-- Kampanya verileri buraya dinamik olarak yüklenecek -->
+
       </tbody>
     </table>
   
@@ -452,7 +450,7 @@
         console.error('Kullanıcı adı alınamadı:', error);
     });
 
-        // Logout fonksiyonu
+   
         function logout() {
             fetch('/logout')
                 .then(() => {
@@ -460,11 +458,11 @@
                 });
         }
 
-        // Aktif menü öğesini ayarlama
+ 
         window.addEventListener('DOMContentLoaded', () => {
-            const path = window.location.pathname;  // Sayfanın URL yolunu al
+            const path = window.location.pathname; 
 
-            // URL'ye göre aktif öğeyi belirleme
+      
             if (path === '/yozoUrban') {
                 document.querySelector('.yozo-link').classList.add('active');
             } else if (path === '/anasayfa') {
@@ -474,7 +472,7 @@
 
 
         document.getElementById('filterForm').addEventListener('submit', function (e) {
-            e.preventDefault(); // Sayfanın yeniden yüklenmesini engeller
+            e.preventDefault();
 
             const ay = document.getElementById('ay').value;
             const yil = document.getElementById('yil').value;
@@ -483,7 +481,7 @@
                 .then(response => response.json())
                 .then(data => {
                     const tableBody = document.querySelector('#kampanyaTable tbody');
-                    tableBody.innerHTML = ''; // Eski tabloyu temizler
+                    tableBody.innerHTML = ''; 
 
                     data.forEach(row => {
                         const tr = document.createElement('tr');
@@ -509,17 +507,17 @@
             console.log('Veri boş geldi!');
         }
         
-        // Verilerden ayları ve ROI değerlerini alıyoruz
+     
         const labels = data.map(item => item.icerik_tur_ad);  
         const roiValues = data.map(item => item.toplam_gelir);  
         function getColorForROI(value) {
-    if (value > 400000) return '#750909'; // Yüksek gelir
-    if (value > 300000) return '#c42525'; // Orta gelir
-    return '#f75454'; // Düşük gelir
+    if (value > 400000) return '#750909'; 
+    if (value > 300000) return '#c42525'; 
+    return '#f75454';
 }
 
 
-        // Grafik verilerini hazırlıyoruz
+    
         const ctx = document.getElementById('icerikBarChart').getContext('2d');
         new Chart(ctx, {
             type: 'bar',
@@ -528,8 +526,8 @@
                 datasets: [{
                     label: 'Yıllık İçerik Türü Performansları',
                     data: roiValues,
-                    backgroundColor: roiValues.map(getColorForROI),  // Renkleri dinamik olarak ayarlıyoruz
-                    borderColor: 'rgba(230, 230, 230, 1)',  // Sınır rengi
+                    backgroundColor: roiValues.map(getColorForROI),  
+                    borderColor: 'rgba(230, 230, 230, 1)',  
                     borderWidth: 1
                 }]
             },
@@ -569,17 +567,16 @@
             console.log('Veri boş geldi!');
         }
         
-        // Verilerden ayları ve ROI değerlerini alıyoruz
         const labels = data.map(item => item.kampanya_tur_ad);  
         const roiValues = data.map(item => item.toplam_gelir);  
         function getColorForROI(value) {
-    if (value > 200000) return '#01470a'; // Yüksek gelir
-    if (value > 100000) return '#1ea62f'; // Orta gelir
-    return '#51fc66'; // Düşük gelir
+    if (value > 200000) return '#01470a'; 
+    if (value > 100000) return '#1ea62f'; 
+    return '#51fc66'; 
 }
 
 
-        // Grafik verilerini hazırlıyoruz
+        
         const ctx = document.getElementById('kampanyaturBarChart').getContext('2d');
         new Chart(ctx, {
             type: 'bar',
@@ -588,8 +585,8 @@
                 datasets: [{
                     label: 'Yıllık Kampanya Tür Performansları',
                     data: roiValues,
-                    backgroundColor: roiValues.map(getColorForROI),  // Renkleri dinamik olarak ayarlıyoruz
-                    borderColor: 'rgba(230, 230, 230, 1)',  // Sınır rengi
+                    backgroundColor: roiValues.map(getColorForROI),  
+                    borderColor: 'rgba(230, 230, 230, 1)',  
                     borderWidth: 1
                 }]
             },
@@ -630,17 +627,16 @@
             console.log('Veri boş geldi!');
         }
         
-        // Verilerden ayları ve ROI değerlerini alıyoruz
+ 
         const labels = data.map(item => item.platform_ad);  
         const roiValues = data.map(item => item.toplam_gelir);  
         function getColorForROI(value) {
-    if (value > 400000) return '#1a3c6b'; // Yüksek gelir
-    if (value > 300000) return '#4589ff'; // Orta gelir
-    return '#a6c8ff'; // Düşük gelir
+    if (value > 400000) return '#1a3c6b'; 
+    if (value > 300000) return '#4589ff'; 
+    return '#a6c8ff'; 
 }
 
 
-        // Grafik verilerini hazırlıyoruz
         const ctx = document.getElementById('platformBarChart').getContext('2d');
         new Chart(ctx, {
             type: 'bar',
@@ -649,8 +645,8 @@
                 datasets: [{
                     label: 'Yıllık Platform Performansları',
                     data: roiValues,
-                    backgroundColor: roiValues.map(getColorForROI),  // Renkleri dinamik olarak ayarlıyoruz
-                    borderColor: 'rgba(230, 230, 230, 1)',  // Sınır rengi
+                    backgroundColor: roiValues.map(getColorForROI),  
+                    borderColor: 'rgba(230, 230, 230, 1)', 
                     borderWidth: 1
                 }]
             },

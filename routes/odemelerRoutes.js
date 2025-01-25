@@ -1,8 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const odemelerController = require('../controllers/odemelerController'); // doğru yolu belirtiyoruz
+const odemelerController = require('../controllers/odemelerController'); 
 
-// Ödemeler sayfasına yönlendiren route
 router.get('/odemeler', odemelerController.getOdemeler);
 
 module.exports = router;

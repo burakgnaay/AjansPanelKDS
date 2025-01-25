@@ -1,7 +1,5 @@
-// Sabit değer ile toplam marka sayısını döndüren fonksiyon
 exports.getTotalMarkasayi = (req, res) => {
     try {
-        // Sabit bir değer döndürülüyor, örneğin 120
         const totalMarkasayi = 1;
 
         res.json({ totalMarkasayi });

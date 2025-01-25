@@ -1,7 +1,7 @@
 exports.getEkipkarsilastirmaData = (req, res) => {
-    // Sabit veri
+    
     const data = {
-        labels: ['1-Kozmos','2-Vortex','3-Pluto' ],  // Grafik için etiketler
+        labels: ['1-Kozmos','2-Vortex','3-Pluto' ],  
         datasets: [{
             label: 'Yıllık Performans Karşılaştırması',
             data: [38.82 , 31.21 , 29.97],  // 
@@ -12,5 +12,5 @@ exports.getEkipkarsilastirmaData = (req, res) => {
         }]
     };
     
-    res.json(data);  // JSON olarak döndür
+    res.json(data);  
 };

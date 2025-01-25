@@ -1,4 +1,3 @@
-// Sabit verilerinizi const olarak tanımlıyoruz
 const kampanyaturData = [
     { kampanya_tur_ad: "1-Kış İndirimi", toplam_gelir: 145325 },
     { kampanya_tur_ad: "2-Yaz İndirimi", toplam_gelir: 149600 },
@@ -14,7 +13,6 @@ const kampanyaturData = [
 
 exports.getKampanyaturPerformans = async (req, res) => {
     try {
-        // Sabit verileri JSON formatında frontend'e gönderiyoruz
         res.json(kampanyaturData);
     } catch (err) {
         console.error("Veri Hatası:", err);

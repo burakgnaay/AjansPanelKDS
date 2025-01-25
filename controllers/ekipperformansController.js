@@ -1,26 +1,26 @@
-const pool = require('../db'); // Veritabanı bağlantısı
+const pool = require('../db'); 
 
-// Verileri filtrelemek için güncel asenkron fonksiyon
+
 async function getEkipData(req, res) {
-  const { ekip_id } = req.query; // Query parametrelerini alıyoruz
+  const { ekip_id } = req.query; 
 
   try {
-    // Varsayılan sorgu
+  
     let query = 'SELECT * FROM kampanya_ekip';
     const params = [];
 
- // Eğer sadece "ekip_id" verilmişse
+
 if (ekip_id) {
     query += ' WHERE ekip_id = ?';
     params.push(ekip_id);
   } else {
-    // Eğer hiçbir filtre yoksa tüm kayıtları getir
-    query += ' WHERE 1'; // "1" tüm kayıtları getirecek bir dummy koşuldur
+  
+    query += ' WHERE 1'; 
   }
   
 
-    const [rows] = await pool.query(query, params); // Sorguyu çalıştır
-    res.json(rows); // JSON formatında sonuçları döndür
+    const [rows] = await pool.query(query, params); 
+    res.json(rows); 
   } catch (error) {
     console.error('Veri alırken hata oluştu:', error);
     res.status(500).json({ error: 'Veri alınamadı' });

@@ -17,137 +17,149 @@
             background-color: #efeff2; 
         }
 
-        .sidebar {
-            width: 210px;
-            height: 180vh;
-            background-color: #f8f8fb; 
-            color: #fff;
-            position: absolute;
-            left: 0;
-            top: 25.5px;
-            padding: 20px;
-            z-index: 1000;
-        }
+       .sidebar {
+    width: 210px;
+    height: 100vh;
+    background-color: #f8f8fb; 
+    color: #fff;
+    position: absolute;
+    left: 0;
+    top: 30px;
+    padding: 20px;
+    z-index: 5;
+}
 
-        .sidebar .logo img {
-    border-radius: 0%; 
+.sidebar .logo img {
+    border-radius: 50%; 
+    width: 120px;
+    display: block;
+    margin: 0 auto 20px;
+}
+
+.sidebar .user {
+    text-align: center;
+    font-size: 19px;
+    margin-bottom: 20px;
+}
+
+.sidebar .user i {
+    font-size: 30px;
+    margin-bottom: 10px;
+    color: #d7ccc8; 
+}
+
+.sidebar .menu a {
+    margin-top:10px;
+    display: block;
+    color: #163662;
+    padding: 10px 0;
+    text-decoration: none;
+}
+
+.sidebar .menu ul li a {
+    padding-left: 20px;
+    color: #ddd;
+    font-size: 14px;
+}
+
+.sidebar .menu a:hover {
+    background-color: #e1e4e4; 
+    border-radius: 0px;
     width: 250px;
-    display: relative;
-    margin-top:-500px;
-    margin-left:-20px;    
+    margin-left: -18px;
 }
-        
 
-        .sidebar .user {
-            text-align: center;
-            font-size: 19px;
-            margin-bottom: 20px;
-        }
 
-        .sidebar .user i {
-            font-size: 30px;
-            margin-bottom: 10px;
-            color: #d7ccc8; 
-        }
-
-        .sidebar .menu a {
-            margin-top: 10px;
-            display: block;
-            color: #163662;
-            padding: 10px 0;
-            text-decoration: none;
-        }
-
-        .sidebar .menu ul li a {
-            padding-left: 20px;
-            color: #ddd;
-            font-size: 14px;
-        }
-
-        .sidebar .menu a:hover {
-            background-color: #e1e4e4; 
-            border-radius: 0px;
-            width: 250px;
-            margin-left: -18px;
-        }
-
-        .sidebar .menu a.active {
-            margin-top: 10px;
-            background-color: #e1e4e4; 
-            border-radius: 0px;
-            width: 190px;
-            margin-left: -18px;
-        }
-
-        .logout {
-            text-align: center;
-        }
-
-        .logout button {
-            background-color: #e00000; 
-            color: #ffffff;
-            border: none;
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background 0.3s ease;
-            margin-top: 350px;
-        }
-
-        .logout button:hover {
-            background-color: #a60000; 
-        }
-
-        .content {
-            margin-left: 0px;
-            position: relative;
-            z-index: 10;
-        }
-
-        .header {
-            margin-bottom: 20px;
-            background-color: #1a3c6b;
-            padding: 10px 15px;
-            height: 40px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .header h2 {
-            margin: 0;
-            color: #ffffff;
-        }
-
-        .header span {
-            color: #ffffff;
-        }
-
-        .menu p {
-            margin-left: -3px;
-            color: #163662;
-        }
-
-        .menu li {
-            margin-left: 0px;
-            color: #163662;
-        }
-
-        .sidebar .menu ul li .yozo-link {
-            color: #163662;
-        }
-
-       
-
-        h1 {
-            text-align:center;
-    margin-left: 185px;
-    font-family: "Montserrat" , serif;
-    font-size: 40px;
+.sidebar .menu a.active {
+    margin-top: 10px;
+    background-color: #e1e4e4; 
+    border-radius: 0px;
+    width:250px;
+    margin-left: -18px;
 
 }
+
+
+.logout {
+    text-align: center;
+}
+
+.logout button {
+    background-color: #e00000; 
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+    margin-top:350px;
+}
+
+.logout button:hover {
+    background-color: #a60000; 
+}
+
+
+.content {
+    margin-left: 0px;
+    
+    position: relative;
+    z-index: 10;
+
+}
+
+.header {
+    margin-bottom: 20px;
+    background-color: #1a3c6b;
+    padding: 10px 15px;
+    height: 40px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+.header h2 {
+    margin: 0;
+    color: #ffffff;
+}
+
+.header span {
+    color: #666;
+}
+
+.menu p  {
+    margin-left:-3px;
+    color:#163662
+    
+}
+
+.menu li {
+    margin-left: 0px;
+    color:#163662
+    
+}
+
+.sidebar .menu ul li .yozo-link {
+    color: #163662; /* Ana Sayfa ile aynı renk */
+    padding: 10px 20px; /* Ana Sayfa ile aynı iç boşluk */
+    text-decoration: none; /* Alt çizgiyi kaldır */
+    display: block; /* Genişlik kontrolü için blok eleman */
+    width: 100%; /* Menü genişliğini doldur */
+    border-radius: 0; /* Köşe yuvarlamasını sıfırla */
+    background-color: transparent; /* Varsayılan arka plan */
+}
+
+.sidebar .menu ul li .yozo-link:hover {
+    background-color: #e1e4e4; /* Hover sırasında arka plan */
+    color: #163662; /* Hover sırasında metin rengi */
+    border-radius: 0; /* Köşe yuvarlamasını sıfırla */
+    margin-right: -10px; /* Dış boşluk sıfır */
+    padding: 10px 20px; /* Ana Sayfa ile aynı padding */
+}
+
 
 #kampanyaTable {
     width: 70%;  

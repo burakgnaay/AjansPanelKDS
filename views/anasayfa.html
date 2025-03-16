@@ -20,6 +20,7 @@ body {
 }
 
 
+
 .sidebar {
     width: 210px;
     height: 100vh;
@@ -27,19 +28,16 @@ body {
     color: #fff;
     position: absolute;
     left: 0;
-    top: 0;
+    top: 30px;
     padding: 20px;
     z-index: 5;
-    margin-top:25.5px;
-    z-index: 1000;
 }
 
 .sidebar .logo img {
-    border-radius: 0%; 
-    width: 250px;
-    display: relative;
-    margin-top:-60px;
-    margin-left:-20px;    
+    border-radius: 50%; 
+    width: 120px;
+    display: block;
+    margin: 0 auto 20px;
 }
 
 .sidebar .user {
@@ -124,6 +122,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    
 }
 
 .header h2 {
@@ -132,7 +131,7 @@ body {
 }
 
 .header span {
-    color: #ffffff;
+    color: #666;
 }
 
 .menu p  {
@@ -148,21 +147,21 @@ body {
 }
 
 .sidebar .menu ul li .yozo-link {
-    color: #163662; 
-    padding: 10px 20px; 
-    text-decoration: none; 
-    display: block; 
-    width: 100%; 
-    border-radius: 0; 
-    background-color: transparent; 
+    color: #163662; /* Ana Sayfa ile aynı renk */
+    padding: 10px 20px; /* Ana Sayfa ile aynı iç boşluk */
+    text-decoration: none; /* Alt çizgiyi kaldır */
+    display: block; /* Genişlik kontrolü için blok eleman */
+    width: 100%; /* Menü genişliğini doldur */
+    border-radius: 0; /* Köşe yuvarlamasını sıfırla */
+    background-color: transparent; /* Varsayılan arka plan */
 }
 
 .sidebar .menu ul li .yozo-link:hover {
-    background-color: #e1e4e4; 
-    color: #163662; 
-    border-radius: 0; 
-    margin-right: -10px; 
-    padding: 10px 20px; 
+    background-color: #e1e4e4; /* Hover sırasında arka plan */
+    color: #163662; /* Hover sırasında metin rengi */
+    border-radius: 0; /* Köşe yuvarlamasını sıfırla */
+    margin-right: -10px; /* Dış boşluk sıfır */
+    padding: 10px 20px; /* Ana Sayfa ile aynı padding */
 }
 
 
@@ -342,7 +341,7 @@ h3 {
     <div class="container">
         <div class="sidebar">
             <div class="logo">
-                <img src="/pic/logo.png" alt="NiloYem Logo" width="150">
+               
             </div>
             <nav class="menu">
                 <a href="/anasayfa" class="active"><i class="fas fa-home"></i> Ana Sayfa</a>

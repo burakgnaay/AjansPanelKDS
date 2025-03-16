@@ -26,18 +26,16 @@ body {
     color: #fff;
     position: absolute;
     left: 0;
-    top: 0;
+    top: 30px;
     padding: 20px;
-    z-index: 100;
+    z-index: 5;
 }
 
 .sidebar .logo img {
-    border-radius: 0%; 
-    width: 250px;
-    display: relative;
-    margin-top:-20.5px;
-    margin-left:-20px;    
-    
+    border-radius: 50%; 
+    width: 120px;
+    display: block;
+    margin: 0 auto 20px;
 }
 
 .sidebar .user {
@@ -73,13 +71,16 @@ body {
     margin-left: -18px;
 }
 
+
 .sidebar .menu a.active {
     margin-top: 10px;
     background-color: #e1e4e4; 
     border-radius: 0px;
     width:250px;
     margin-left: -18px;
+
 }
+
 
 .logout {
     text-align: center;
@@ -101,10 +102,13 @@ body {
     background-color: #a60000; 
 }
 
+
 .content {
     margin-left: 0px;
+    
     position: relative;
     z-index: 10;
+
 }
 
 .header {
@@ -116,6 +120,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    
 }
 
 .header h2 {
@@ -124,36 +129,40 @@ body {
 }
 
 .header span {
-    color: #ffffff;
+    color: #666;
 }
 
-.menu p {
-    margin-left: -3px;
-    color: #163662;
+.menu p  {
+    margin-left:-3px;
+    color:#163662
+    
 }
 
 .menu li {
     margin-left: 0px;
-    color: #163662;
+    color:#163662
+    
 }
 
 .sidebar .menu ul li .yozo-link {
-    color: #163662; 
-    padding: 10px 20px; 
-    text-decoration: none; 
-    display: block; 
-    width: 100%; 
-    border-radius: 0; 
-    background-color: transparent; 
+    color: #163662; /* Ana Sayfa ile aynı renk */
+    padding: 10px 20px; /* Ana Sayfa ile aynı iç boşluk */
+    text-decoration: none; /* Alt çizgiyi kaldır */
+    display: block; /* Genişlik kontrolü için blok eleman */
+    width: 100%; /* Menü genişliğini doldur */
+    border-radius: 0; /* Köşe yuvarlamasını sıfırla */
+    background-color: transparent; /* Varsayılan arka plan */
 }
 
 .sidebar .menu ul li .yozo-link:hover {
-    background-color: #e1e4e4; 
-    color: #163662; 
-    border-radius: 0; 
-    margin-right: -10px; 
-    padding: 10px 20px; 
+    background-color: #e1e4e4; /* Hover sırasında arka plan */
+    color: #163662; /* Hover sırasında metin rengi */
+    border-radius: 0; /* Köşe yuvarlamasını sıfırla */
+    margin-right: -10px; /* Dış boşluk sıfır */
+    padding: 10px 20px; /* Ana Sayfa ile aynı padding */
 }
+
+
 
 
 #odemebilgiTable {
